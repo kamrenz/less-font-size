@@ -1,0 +1,12 @@
+//Mixin for calculating font-size rem to px fallback
+//  - Send in a rem unit variable
+.font-size(@remValue) {
+    //Unit function http://lesscss.org/functions/#misc-functions-unit
+    @unit: unit(@remValue);
+    @pxValue: @unit * 10;
+    //String interpolation
+    //  @pxValuepx won't work ... no variable @pxValuepx
+    //  "@{pxValue}px" ... "20px" is a string :(
+    font-size: ~"@{pxValue}px";
+    font-size: @remValue;
+}
